@@ -1,0 +1,15 @@
+.glyph {
+  border: 1px solid black;
+}
+.program.online circle{
+  fill: #0D77AC;
+}
+.program.online text{
+  fill: white;
+}
+.program.offline circle {
+  fill: #d8d8d8;
+}
+.program.offline text {
+  fill: black;
+}

@@ -1,13 +1,13 @@
-jurisdiction,name,snap,medicaid,tanf,wic,childcare,registration,id_proofing,completion_time,mobile_friendly,languages
-Alaska,Alaska Department of Health Division of Public Assistance,no,yes,no,no,no,yes,no,30,no,
-Arkansas,ACCESS Arkansas,yes,yes,yes,no,no,yes,yes,35,yes,"spanish,marshallese"
-Colorado,Colorado PEAK,yes,yes,yes,no,no,yes,no,,no,spanish
-Illinois,ABE: Application for Benefits Eligiblity ,yes,yes,yes,no,yes,yes,optional,31,yes,spanish
-Maryland,myMDTHINK,yes,no,yes,no,no,yes,no,70,,
-Maryland,Maryland Health Connection,no,yes,no,no,no,yes,no,30,yes,spanish(incomplete)
-Michigan,MI Bridges,yes,yes,yes,yes,yes,yes,no,23,yes,"spanish,arabic"
-New Mexico,YesNM,yes,yes,yes,no,no,yes,optional,40,yes,"spanish,vietnamese,chinese"
-New Mexico,WIC,no,no,no,no,no,no,no,,yes,"spanish,german,french,italian,portuguese,russian"
-New Mexico,Family Services,no,no,no,no,yes,yes,no,25,yes,spanish
-Ohio,Ohio Benefits ,yes,yes,yes,no,yes,yes,optional,27,yes,"spanish,somali"
-Washington DC,District Direct,yes,yes,yes,no,no,yes,no,18,yes,"spanish,amharic"
+code,jurisdiction,name,programs,snap,tanf,medicaid,childcare,wic,registration,id_proofing,completion_time,mobile_friendly,languages
+AK,Alaska,Alaska Department of Health Division of Public Assistance,m,no,no,yes,no,no,yes,no,30,no,
+AR,Arkansas,ACCESS Arkansas,stm,yes,yes,yes,no,no,yes,yes,35,yes,"spanish,marshallese"
+CO,Colorado,Colorado PEAK,stm,yes,yes,yes,no,no,yes,no,,no,spanish
+IL,Illinois,ABE: Application for Benefits Eligiblity ,stmc,yes,yes,yes,yes,no,yes,optional,31,yes,spanish
+MD,Maryland,myMDTHINK,st,yes,yes,no,no,no,yes,no,70,,
+MD,Maryland,Maryland Health Connection,m,no,no,yes,no,no,yes,no,30,yes,spanish(incomplete)
+MI,Michigan,MI Bridges,stmcw,yes,yes,yes,yes,yes,yes,no,23,yes,"spanish,arabic"
+NM,New Mexico,YesNM,stm,yes,yes,yes,no,no,yes,optional,40,yes,"spanish,vietnamese,chinese"
+NM,New Mexico,WIC,,no,no,no,no,no,no,no,,yes,"spanish,german,french,italian,portuguese,russian"
+NM,New Mexico,Family Services,c,no,no,no,yes,no,yes,no,25,yes,spanish
+OH,Ohio,Ohio Benefits ,stmc,yes,yes,yes,yes,no,yes,optional,27,yes,"spanish,somali"
+DC,Washington DC,District Direct,stm,yes,yes,yes,no,no,yes,no,18,yes,"spanish,amharic"
