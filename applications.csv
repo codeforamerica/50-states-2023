@@ -1,13 +1,89 @@
-code,jurisdiction,name,programs,snap,tanf,medicaid,childcare,wic,registration,id_proofing,completion_time,mobile_friendly,languages
-AK,Alaska,Alaska Department of Health Division of Public Assistance,m,no,no,yes,no,no,yes,no,30,no,
-AR,Arkansas,ACCESS Arkansas,stm,yes,yes,yes,no,no,yes,yes,35,yes,"spanish,marshallese"
-CO,Colorado,Colorado PEAK,stm,yes,yes,yes,no,no,yes,no,,no,spanish
-IL,Illinois,ABE: Application for Benefits Eligiblity ,stmc,yes,yes,yes,yes,no,yes,optional,31,yes,spanish
-MD,Maryland,myMDTHINK,st,yes,yes,no,no,no,yes,no,70,,
-MD,Maryland,Maryland Health Connection,m,no,no,yes,no,no,yes,no,30,yes,spanish(incomplete)
-MI,Michigan,MI Bridges,stmcw,yes,yes,yes,yes,yes,yes,no,23,yes,"spanish,arabic"
-NM,New Mexico,YesNM,stm,yes,yes,yes,no,no,yes,optional,40,yes,"spanish,vietnamese,chinese"
-NM,New Mexico,WIC,,no,no,no,no,no,no,no,,yes,"spanish,german,french,italian,portuguese,russian"
-NM,New Mexico,Family Services,c,no,no,no,yes,no,yes,no,25,yes,spanish
-OH,Ohio,Ohio Benefits ,stmc,yes,yes,yes,yes,no,yes,optional,27,yes,"spanish,somali"
-DC,Washington DC,District Direct,stm,yes,yes,yes,no,no,yes,no,18,yes,"spanish,amharic"
+year,code,jurisdiction,name,programs,medicaid,snap,tanf,childcare,wic,registration,id_proofing,completion_time,mobile_friendly,languages
+2022,AK,Alaska,Alaska Department of Health Division of Public Assistance,m,yes,no,no,no,no,yes,no,30,no,
+2022,AR,Arkansas,ACCESS Arkansas,mst,yes,yes,yes,no,no,yes,yes,35,yes,"spanish,marshallese"
+2022,CO,Colorado,Colorado PEAK,mst,yes,yes,yes,no,no,yes,no,,no,spanish
+2022,IL,Illinois,ABE: Application for Benefits Eligiblity ,mstc,yes,yes,yes,yes,no,yes,optional,31,yes,spanish
+2022,MD,Maryland,myMDTHINK,st,no,yes,yes,no,no,yes,no,70,,
+2022,MD,Maryland,Maryland Health Connection,m,yes,no,no,no,no,yes,no,30,yes,spanish(incomplete)
+2022,MI,Michigan,MI Bridges,mstcw,yes,yes,yes,yes,yes,yes,no,23,yes,"spanish,arabic"
+2022,NM,New Mexico,YesNM,mst,yes,yes,yes,no,no,yes,optional,40,yes,"spanish,vietnamese,chinese"
+2022,NM,New Mexico,WIC,,no,no,no,no,no,no,no,,yes,"spanish,german,french,italian,portuguese,russian"
+2022,NM,New Mexico,Family Services,c,no,no,no,yes,no,yes,no,25,yes,spanish
+2022,OH,Ohio,Ohio Benefits ,mstc,yes,yes,yes,yes,no,yes,optional,27,yes,"spanish,somali"
+2022,DC,Washington DC,District Direct,mst,yes,yes,yes,no,no,yes,no,18,yes,"spanish,amharic"
+2019,AL,Alabama,Alabama,m,yes,no,no,,no,yes,yes,30,no,
+2019,AL,Alabama,MyDHR,s,no,yes,no,,no,yes,no,25,yes,
+2019,AK,Alaska,ARIES,m,yes,no,no,,no,yes,no,35,no,
+2019,AZ,Arizona,Health-e-Arizona,mst,yes,yes,yes,,no,yes,no,45,no,
+2019,AR,Arkansas,ACCESS Arkansas,st,no,yes,yes,,no,yes,no,35,no,
+2019,AR,Arkansas,ACCESS Arkansas Medicaid,m,yes,no,no,,no,yes,yes,30,no,
+2019,CA,California,CalWin,mst,yes,yes,yes,,no,yes,no,30,yes,
+2019,CA,California,C4Yourself,mst,yes,yes,yes,,no,yes,no,45,no,
+2019,CA,California,YourBenefitsNow,mst,yes,yes,yes,,no,yes,no,60,no,
+2019,CO,Colorado,PEAK,mst,yes,yes,yes,,no,no,no,35,yes,
+2019,CO,Colorado,Colorado WIC,w,no,no,no,,yes,no,no,5,yes,
+2019,CT,Connecticut,Access Health CT,m,yes,no,no,,no,,yes,,,
+2019,CT,Connecticut,ConneCT,st,no,yes,yes,,no,yes,no,65,no,
+2019,DE,Delaware,Delaware ASSIST,mst,yes,yes,yes,,no,yes,no,90,no,
+2019,FL,Florida,Access Florida,mst,yes,yes,yes,,no,yes,no,120,no,
+2019,GA,Georgia,Georgia Gateway,mst,yes,yes,yes,,no,yes,no,60,yes,
+2019,GA,Georgia,Georgia WIC,w,no,no,no,,yes,no,no,5,no,
+2019,HI,Hawaii,Med-Quest,m,yes,no,no,,no,,yes,,no,
+2019,ID,Idaho,idalink,m,yes,no,no,,no,yes,yes,35,no,
+2019,IL,Illinois,ABE,mst,yes,yes,yes,,no,yes,no,40,no,
+2019,IN,Indiana,FSSA Benefits,mst,yes,yes,yes,,no,no,no,60,no,
+2019,IA,Iowa,OASIS,st,no,yes,yes,,no,no,no,20,no,
+2019,IA,Iowa,DHS Services Portal,m,yes,no,no,,no,yes,no,30,no,
+2019,KS,Kansas,Kansas DCF,st,no,yes,yes,,no,yes,no,60,no,
+2019,KS,Kansas,Kansas DCF Medical,m,yes,no,no,,no,yes,no,60,no,
+2019,KY,Kentucky,Benefind,mst,yes,yes,yes,,no,yes,yes,50,yes,
+2019,LA,Louisiana,LA CAFÉ,st,no,yes,yes,,no,yes,no,35,no,
+2019,LA,Louisiana,LA Medicaid Portal,m,yes,no,no,,no,yes,no,35,yes,
+2019,ME,Maine,My Maine Connection,mst,yes,yes,yes,,no,yes,no,45,yes,
+2019,MD,Maryland,myDHR,mst,yes,yes,yes,,no,yes,no,35,yes,
+2019,MD,Maryland,Maryland Health Connection,m,yes,no,no,,no,yes,no,35,no,
+2019,MA,Massachusetts,DTA Connect,s,no,yes,no,,no,no,no,20,yes,
+2019,MA,Massachusetts,Massachusetts Health Connector,m,yes,no,no,,no,yes,yes,35,yes,
+2019,MA,Massachusetts,WIC Mass.gov,w,no,no,no,,yes,no,no,5,yes,
+2019,MI,Michigan,MI Bridges,mst,yes,yes,yes,,no,yes,optional,20,yes,
+2019,MN,Minnesota,ApplyMN,st,no,yes,yes,,no,yes,no,60,no,
+2019,MN,Minnesota,MNSure,m,yes,no,no,,no,yes,yes,50,no,
+2019,MS,Mississippi,Access,mst,yes,yes,yes,,no,no,no,30,yes,
+2019,MO,Missouri,MyDSS Health,m,yes,no,no,,no,yes,no,20,yes,
+2019,MO,Missouri,MyDSS,st,no,yes,yes,,no,yes,no,40,yes,
+2019,MT,Montana,Montana DPHHS,mst,yes,yes,yes,,no,yes,no,30,yes,
+2019,NE,Nebraska,Access Nebraska,mst,yes,yes,yes,,no,yes,no,40,no,
+2019,NV,Nevada,Access Nevada,mst,yes,yes,yes,,no,yes,no,25,yes,
+2019,NH,New Hampshire,NHEasy,mst,yes,yes,yes,,no,yes,no,30,yes,
+2019,NJ,New Jersey,NJOneApp,st,no,yes,yes,,no,yes,no,45,no,
+2019,NJ,New Jersey,NJFamilyCare,m,yes,no,no,,no,no,no,15,no,
+2019,NM,New Mexico,YesNM,mst,yes,yes,yes,,no,yes,no,45,yes,
+2019,NY,New York,New York MyBenefits,ms,yes,yes,no,,no,yes,no,30,yes,
+2019,NYC,New York City,AccessNYC,s,no,yes,no,,no,yes,no,30,yes,
+2019,NC,North Carolina,ePASS,ms,yes,yes,no,,no,yes,no,15,no,
+2019,ND,North Dakota,ND Gov,mst,yes,yes,yes,,no,no,no,45,no,
+2019,OH,Ohio,Ohio Benefits,mst,yes,yes,yes,,no,yes,no,30,no,
+2019,OK,Oklahoma,OK DHS Live!,mst,yes,yes,yes,,no,yes,no,30,yes,
+2019,OR,Oregon,Oregon SNAP,st,no,yes,yes,,no,yes,no,30,yes,
+2019,OR,Oregon,Oregon ONE,m,yes,no,no,,no,yes,yes,50,yes,
+2019,PA,Pennsylvania,Compass,mst,yes,yes,yes,,no,yes,no,20,no,
+2019,PA,Pennsylvania,PA WIC,w,no,no,no,,yes,no,no,5,yes,
+2019,RI,Rhode Island,HealthSource RI,mst,yes,yes,yes,,no,yes,no,60,yes,
+2019,SC,South Carolina,SCMAPP,st,no,yes,yes,,no,no,no,30,no,
+2019,SC,South Carolina,Healthy Connections,m,yes,no,no,,no,yes,no,30,no,
+2019,SD,South Dakota,DSS,ms,yes,yes,no,,no,yes,no,15,no,
+2019,TN,Tennessee,TennCare Connect,m,yes,no,no,,no,yes,no,30,no,
+2019,TN,Tennessee,TN DHS,st,no,yes,yes,,no,yes,no,20,yes,
+2019,TX,Texas,Your Texas Benefits,mst,yes,yes,yes,,no,yes,no,60,yes,
+2019,TX,Texas,WIC,w,no,no,no,,yes,no,no,5,yes,
+2019,UT,Utah,myCase,mst,yes,yes,yes,,no,no,no,60,yes,
+2019,VT,Vermont,My Benefits Vermont,st,no,yes,yes,,no,yes,no,40,no,
+2019,VT,Vermont,VT Health Connect,m,yes,no,no,,no,yes,yes,25,no,
+2019,VA,Virginia,My VA WIC,w,no,no,no,,yes,yes,no,15,no,
+2019,VA,Virginia,CommonHelp,mst,yes,yes,yes,,no,yes,no,60,no,
+2019,WA,Washington,Healthplanfinder,m,yes,no,no,,no,no,yes,20,yes,
+2019,WA,Washington,Washington Connection,st,no,yes,yes,,no,no,no,45,no,
+2019,WV,West Virginia,WIC Household,w,no,no,no,,yes,yes,no,15,no,
+2019,WV,West Virginia,inROADS,ms,yes,yes,no,,no,yes,no,50,no,
+2019,WI,Wisconsin,ACCESS,ms,yes,yes,no,,no,yes,no,60,no,
+2019,WY,Wyoming,WES,m,yes,no,no,,no,yes,no,40,yes,

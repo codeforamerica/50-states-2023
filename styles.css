@@ -1,6 +1,17 @@
-.glyph {
-  border: 1px solid black;
+main {
+  max-width: 30em;
+  margin: 0 auto;
 }
+.jurisdiction {
+  display: inline-block;
+  max-width: 10em;
+  margin-top: 1em;
+  margin-right: 1em;
+}
+.jurisdiction h4 {
+  margin: 0;
+}
+
 .program.online circle{
   fill: #0D77AC;
 }
@@ -12,4 +23,12 @@
 }
 .program.offline text {
   fill: black;
+}
+.application.multi-integration {
+  fill: #C1D6E4;
+}
+.application.double-integration {
+  fill: none;
+  stroke: #C1D6E4;
+  stroke-width: 22;
 }

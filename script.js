@@ -6,14 +6,6 @@ const glyphCenter = { x: glyphWidth / 2, y: glyphHeight / 2 };
 const glyphRadius = Math.round(glyphHeight / 3);
 const programDotRadius = Math.round(glyphRadius / 4);
 const programKey = "mstcw";
-function programVertex(letter) {
-    const i = programKey.indexOf(letter);
-    const angle = i / 5 * Math.PI * 2 + 1.1 * Math.PI;
-    return {
-        x: Math.cos(angle) * glyphRadius + glyphCenter.x,
-        y: Math.sin(angle) * glyphRadius + glyphCenter.y
-      };
-}
 
 // Colors: also repeated as CSS variables. Used in JS so that color transitions work properly.
 const backgroundColor = '#fff';
@@ -23,17 +15,54 @@ const availableColorLighter = '#C1D6E4';
 const unavailableColor = '#d8d8d8';
 const unavailableColorLighter = '#ddd';
 
+
+function programVertex(letter) {
+    const i = programKey.indexOf(letter);
+    const angle = i / 5 * Math.PI * 2 + 1.1 * Math.PI;
+    return {
+        x: Math.cos(angle) * glyphRadius + glyphCenter.x,
+        y: Math.sin(angle) * glyphRadius + glyphCenter.y
+      };
+}
+
+
 function parseRow(d){
     d["program_count"] = d["programs"].length;
     return d;
 }
 
+function sortProgramLetters(programsString) {
+    return programsString.split("").sort(
+        (a, b) => programKey.indexOf(a) - programKey.indexOf(b)
+    ).join("");
+}
+
+function aggregateApplicationsByJurisdiction(apps) {
+    return {
+        year: apps[0]["year"],
+        jurisdiction: apps[0]["jurisdiction"],
+        code: apps[0]["code"],
+        applications: apps,
+        combined_programs: sortProgramLetters(
+            apps.map(a => a["programs"]).reduce((a, b) => a + b, ""))
+    }
+}
+
 function drawVisualizations(csvData){
     // exclude rows with no online programs
     const usableRows = csvData.filter(d => d["programs"]);
-    // next by jurisdiction codes
-    const jurisdictions = d3.group(usableRows, d => d["jurisdiction"]);
-
+    
+    console.log(usableRows[0]);
+    // group by jurisdiction
+    const rollup = d3.rollup(
+        usableRows,
+        aggregateApplicationsByJurisdiction,
+        d => d["year"],
+        d => d["jurisdiction"]
+    );
+    console.log(rollup);
+    const jurisdictions = Array.from(rollup.get("2022").values());
+    
     console.log(jurisdictions);
 
     const jurisdictionDivs = d3.select("#visualization")
@@ -41,22 +70,38 @@ function drawVisualizations(csvData){
         .data(jurisdictions)
         .enter().append("div")
         .attr("class", "jurisdiction")
-        .attr("id", d => d[1][0]["code"]);
+        .attr("id", d => d.code);
 
-    jurisdictionDivs.append("h4").text(d => d[0]);
+    jurisdictionDivs.append("h4").text(d => d.jurisdiction);
     const jurisdictionSvgs = jurisdictionDivs.append("svg")
         .attr("class", "glyph")
         .attr("height", glyphHeight)
         .attr("width", glyphWidth);
+
+    // draw application integration shapes
+    const applicationGroups = jurisdictionSvgs.selectAll("g.application")
+        .data(d => d.applications.filter(a => a["programs"].length > 1))
+        .enter().append("g")
+        .attr("class", a => {
+            return "application " + (a["programs"].length == 2 ? "double-integration" : "multi-integration")
+        });
+    applicationGroups.append("path")
+        .attr("d", a => {
+            return "M" + a["programs"].split("").map(p => {
+                const point = programVertex(p);
+                return [point.x, point.y].join(",")
+            }).join("L") + "Z";
+        })
+        .attr("title", a => a["name"]);
+
+    // draw program dots
     const programPositions = jurisdictionSvgs.selectAll("g.program")
         .data(
             d => {
-                const onlineProgramKey = d[1].map(a => a["programs"]).reduce((a, b) => a + b, "");
-                console.log(onlineProgramKey);
                 return programKey.split("").map(p => {
                     return {
                         key: p,
-                        online: onlineProgramKey.includes(p)
+                        online: d.combined_programs.includes(p)
                     }
                 });
             }
@@ -65,23 +110,13 @@ function drawVisualizations(csvData){
         .attr("transform", d => {
             const v = programVertex(d.key);
             return `translate(${v.x},${v.y})`
-        })
+        });
     programPositions.append("circle")
         .attr("r", programDotRadius);
     programPositions.append("text")
         .text(d => d.key.toUpperCase())
         .attr('dy', '0.35em')
         .attr('text-anchor', 'middle');
-    const applicationGroups = jurisdictionSvgs.selectAll("g.application")
-        .data(d => d[1])
-        .enter().append("g")
-        .attr("class", "application")
-        .attr("transform", "translate(0,15)");
-    applicationGroups.append("text")
-        .text(d => d["name"]);
-    applicationGroups.append("text")
-        .text(d => d["programs"])
-        .attr("transform", "translate(0,15)");
 
 }
 
