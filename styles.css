@@ -32,3 +32,14 @@ main {
   stroke: #C1D6E4;
   stroke-width: 22;
 }
+.swiper {
+  width: 100%;
+  border: 1px solid black;
+}
+.swiper-slide {
+  aspect-ratio: 1024 / 768;
+  overflow-y: auto;
+}
+.swiper-slide img {
+  width: 100%;
+}

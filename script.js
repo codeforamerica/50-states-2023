@@ -52,7 +52,6 @@ function drawVisualizations(csvData){
     // exclude rows with no online programs
     const usableRows = csvData.filter(d => d["programs"]);
     
-    console.log(usableRows[0]);
     // group by jurisdiction
     const rollup = d3.rollup(
         usableRows,
@@ -60,11 +59,7 @@ function drawVisualizations(csvData){
         d => d["year"],
         d => d["jurisdiction"]
     );
-    console.log(rollup);
     const jurisdictions = Array.from(rollup.get("2022").values());
-    
-    console.log(jurisdictions);
-
     const jurisdictionDivs = d3.select("#visualization")
         .selectAll("div")
         .data(jurisdictions)
@@ -120,7 +115,50 @@ function drawVisualizations(csvData){
 
 }
 
+const state = "nc";
+const application = "epass";
+const device = "desktop";
+const section = "income-assets-expenses";
+const screenshotScope = `screenshots/${state}-${application}-${device}`;
+const screenshotJsonUrl = screenshotScope + "-sections.json";
+
+const slideIndexFormat = d3.format("03d");
+function screenshotSlideTemplate(screenshotScope, index){
+    return `
+    <div class="swiper-slide">
+        <img src="${screenshotScope}-${slideIndexFormat(index)}.png" alt="">
+    </div>`;
+}
+
+function initializeCarousel(jsonData){
+    const [start, end] = jsonData[section];
+    const wrapper = $(".swiper-wrapper");
+    wrapper.addClass(device);
+    for (let i = start; i <= end; i++){
+        wrapper.append(screenshotSlideTemplate(screenshotScope, i));
+    }
+    const swiper = new Swiper(".swiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+          },
+        },
+    });
+}
+
+// get screenshot json, add screenshots, and then set up swiper
+function loadScreenshots(){
+    $.getJSON(screenshotJsonUrl, initializeCarousel);
+}
+
+
+
+const $ = jQuery;
 d3.csv(CSV_URL, parseRow).then(drawVisualizations);
-
-
-
+loadScreenshots();
