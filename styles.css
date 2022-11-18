@@ -36,9 +36,20 @@ main {
   width: 100%;
   border: 1px solid black;
 }
-.swiper-slide {
+.swiper-wrapper.mobile {
+  aspect-ratio: 360 / 640;
+}
+.swiper-wrapper.desktop {
   aspect-ratio: 1024 / 768;
+}
+.swiper-slide {
   overflow-y: auto;
+}
+.desktop .swiper-slide {
+  aspect-ratio: 1024 / 768;
+}
+.mobile .swiper-slide {
+  aspect-ratio: 360 / 640;
 }
 .swiper-slide img {
   width: 100%;

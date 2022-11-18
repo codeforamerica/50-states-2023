@@ -114,11 +114,12 @@ function drawVisualizations(csvData){
         .attr('text-anchor', 'middle');
 
 }
-
+let swiper;
+let sectionData;
 const state = "nc";
 const application = "epass";
-const device = "desktop";
-const section = "income-assets-expenses";
+const device = "mobile";
+const section = "registration";
 const screenshotScope = `screenshots/${state}-${application}-${device}`;
 const screenshotJsonUrl = screenshotScope + "-sections.json";
 
@@ -131,13 +132,8 @@ function screenshotSlideTemplate(screenshotScope, index){
 }
 
 function initializeCarousel(jsonData){
-    const [start, end] = jsonData[section];
-    const wrapper = $(".swiper-wrapper");
-    wrapper.addClass(device);
-    for (let i = start; i <= end; i++){
-        wrapper.append(screenshotSlideTemplate(screenshotScope, i));
-    }
-    const swiper = new Swiper(".swiper", {
+    sectionData = jsonData;
+    swiper = new Swiper(".swiper", {
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -145,11 +141,15 @@ function initializeCarousel(jsonData){
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+        //   renderCustom: (swiper: default, current: number, total: number)
           renderBullet: function (index, className) {
             return '<span class="' + className + '">' + (index + 1) + "</span>";
           },
         },
     });
+
+    $(".swiper-wrapper").addClass(device);
+    updateSection(section);
 }
 
 // get screenshot json, add screenshots, and then set up swiper
@@ -157,8 +157,22 @@ function loadScreenshots(){
     $.getJSON(screenshotJsonUrl, initializeCarousel);
 }
 
+function updateSection(section){
+    const [start, end] = sectionData[section];
+    const newSlides = [];
+    for (let i = start; i <= end; i++){
+        newSlides.push(screenshotSlideTemplate(screenshotScope, i));
+    }
+    swiper.removeAllSlides();
+    swiper.appendSlide(newSlides);
+}
 
 
 const $ = jQuery;
 d3.csv(CSV_URL, parseRow).then(drawVisualizations);
 loadScreenshots();
+document.querySelector(".menu--sections").addEventListener("click", function(e){
+    // e.preventDefault();
+    updateSection(e.target.name);
+    // return false;
+});

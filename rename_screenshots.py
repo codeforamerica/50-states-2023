@@ -3,20 +3,20 @@ import re
 import json
 from pprint import pprint
 
-from_directory = "nc/epass/desktop"
-regex_pattern = re.compile("NC_ePass_D_(?P<number>\d?\d).*\_Full.png")
+from_directory = "nc-epass-mobile"
+regex_pattern = re.compile("NC_ePass_M_(?P<number>\d?\d).*\_Full.png")
 existing_sections = {
     "landing": [1, 1],
     "registration": [2, 11],
-    "id-proofing": [16, 20],
+    "id-proofing": [16, 21],
     "household": [22, 33],
     "income-assets-expenses": [36, 52]
 }
 
 jurisdiction = "nc"
 application = "epass"
-device = "desktop"
-# device = "mobile"
+# device = "desktop"
+device = "mobile"
 to_directory = "screenshots"
 file_naming_prefix = f"{jurisdiction}-{application}-{device}"
 

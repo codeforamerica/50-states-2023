@@ -1,0 +1,22 @@
+{
+  "landing": [
+    0,
+    0
+  ],
+  "registration": [
+    1,
+    8
+  ],
+  "id-proofing": [
+    13,
+    18
+  ],
+  "household": [
+    19,
+    30
+  ],
+  "income-assets-expenses": [
+    33,
+    49
+  ]
+}
