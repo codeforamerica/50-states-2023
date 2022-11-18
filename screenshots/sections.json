@@ -1,0 +1,50 @@
+{
+  "nc": {
+    "epass": {
+      "mobile": {
+        "landing": [
+          0,
+          0
+        ],
+        "registration": [
+          1,
+          8
+        ],
+        "id-proofing": [
+          13,
+          18
+        ],
+        "household": [
+          19,
+          30
+        ],
+        "income-assets-expenses": [
+          33,
+          49
+        ]
+      },
+      "desktop": {
+        "landing": [
+          0,
+          0
+        ],
+        "registration": [
+          1,
+          9
+        ],
+        "id-proofing": [
+          14,
+          17
+        ],
+        "household": [
+          18,
+          25
+        ],
+        "income-assets-expenses": [
+          27,
+          40
+        ]
+      }
+    }
+  }
+}

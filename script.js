@@ -1,5 +1,6 @@
 
 const CSV_URL = "./applications.csv";
+const sectionsJsonUrl = "./screenshots/sections.json";
 const glyphWidth = 130;
 const glyphHeight = 130;
 const glyphCenter = { x: glyphWidth / 2, y: glyphHeight / 2 };
@@ -118,9 +119,9 @@ let swiper;
 let sectionData;
 const state = "nc";
 const application = "epass";
-const device = "mobile";
-const section = "registration";
-const screenshotScope = `screenshots/${state}-${application}-${device}`;
+let device = "mobile";
+let section = "registration";
+let screenshotScope = `screenshots/${state}-${application}-${device}`;
 const screenshotJsonUrl = screenshotScope + "-sections.json";
 
 const slideIndexFormat = d3.format("03d");
@@ -154,25 +155,38 @@ function initializeCarousel(jsonData){
 
 // get screenshot json, add screenshots, and then set up swiper
 function loadScreenshots(){
-    $.getJSON(screenshotJsonUrl, initializeCarousel);
+    $.getJSON(sectionsJsonUrl, initializeCarousel);
 }
 
-function updateSection(section){
-    const [start, end] = sectionData[section];
+function updateSlides(){
+    const [start, end] = sectionData[state][application][device][section];
+    console.log(sectionData[state][application][device][section]);
     const newSlides = [];
     for (let i = start; i <= end; i++){
         newSlides.push(screenshotSlideTemplate(screenshotScope, i));
     }
     swiper.removeAllSlides();
     swiper.appendSlide(newSlides);
+    $(".swiper-wrapper").addClass(device);
+    swiper.slideTo(0, 0, false);
+}
+
+function updateSection(newSection){
+    section = newSection;
+    updateSlides();
+}
+
+function updateDevice(newDevice){
+    $(".swiper-wrapper").removeClass(device);
+    console.log(newDevice);
+    device = newDevice;
+    screenshotScope = `screenshots/${state}-${application}-${device}`;
+    updateSlides();
 }
 
 
 const $ = jQuery;
 d3.csv(CSV_URL, parseRow).then(drawVisualizations);
 loadScreenshots();
-document.querySelector(".menu--sections").addEventListener("click", function(e){
-    // e.preventDefault();
-    updateSection(e.target.name);
-    // return false;
-});
+document.querySelector(".menu--sections").addEventListener("click", e => updateSection(e.target.name));
+document.querySelector(".menu--device").addEventListener("click", e => updateDevice(e.target.name));

@@ -34,6 +34,7 @@ main {
 }
 .swiper {
   width: 100%;
+  min-height: 360px;
   border: 1px solid black;
 }
 .swiper-wrapper.mobile {
@@ -45,10 +46,11 @@ main {
 .swiper-slide {
   overflow-y: auto;
 }
-.desktop .swiper-slide {
+
+.desktop {
   aspect-ratio: 1024 / 768;
 }
-.mobile .swiper-slide {
+.mobile {
   aspect-ratio: 360 / 640;
 }
 .swiper-slide img {
